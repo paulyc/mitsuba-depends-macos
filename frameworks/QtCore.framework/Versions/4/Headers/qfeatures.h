@@ -523,11 +523,6 @@
 #define QT_NO_FTP
 #endif
 
-// Hyper Text Transfer Protocol
-#if !defined(QT_NO_HTTP) && (defined(QT_NO_HOSTINFO))
-#define QT_NO_HTTP
-#endif
-
 // QInputContext
 #if !defined(QT_NO_IM) && (defined(QT_NO_LIBRARY))
 #define QT_NO_IM
@@ -581,6 +576,11 @@
 // QGraphicsView
 #if !defined(QT_NO_GRAPHICSVIEW) && (defined(QT_NO_SCROLLAREA))
 #define QT_NO_GRAPHICSVIEW
+#endif
+
+// Hyper Text Transfer Protocol
+#if !defined(QT_NO_HTTP) && defined(QT_NO_HOSTINFO)
+#define QT_NO_HTTP
 #endif
 
 // QMdiArea
@@ -888,3 +888,11 @@
 #define QT_NO_PRINTPREVIEWDIALOG
 #endif
 
+//Input Method
+#if defined(QT_NO_IM)
+#define QT_NO_XIM
+#endif
+
+#if defined(QT_NO_IM)
+#define QT_NO_QWS_INPUTMETHODS
+#endif
